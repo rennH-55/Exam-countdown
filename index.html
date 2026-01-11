@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; font-family:Arial; margin-top:120px;">
+
+<h2>📘 Exam Countdown</h2>
+
+<div id="countdown" style="font-size:40px; font-weight:bold;"></div>
+
+<p style="font-size:18px; font-weight:600;">
+  No excuses. Every second counts. Keep pushing.
+</p>
+
+<script>
+  const examDate = new Date("2026-03-11T09:00:00").getTime();
+
+  setInterval(function () {
+    const now = new Date().getTime();
+    const diff = examDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "📚 EXAM TIME!";
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("countdown").innerHTML =
+      days + " Days : " + minutes + " Minutes : " + seconds + " Seconds";
+  }, 1000);
+</script>
+
+</body>
+</html>
